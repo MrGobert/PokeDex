@@ -4,6 +4,11 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="pokemon.ttf">
+            <string>PokemonSolidNormal</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -22,10 +27,45 @@
                             </imageView>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fKD-jR-D4u">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pokedex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Axn-C1-CQL">
+                                        <rect key="frame" x="241" y="10" width="119" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="119" id="UYx-J0-lUO"/>
+                                            <constraint firstAttribute="height" constant="37" id="pwD-F5-mc9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="27"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epa-50-T84">
+                                        <rect key="frame" x="558" y="18" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="CMU-4X-LgU"/>
+                                            <constraint firstAttribute="width" constant="32" id="pba-U1-mbj"/>
+                                        </constraints>
+                                        <state key="normal" image="musicbtn"/>
+                                        <connections>
+                                            <action selector="musicBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zt0-i7-RjX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="1" green="0.41550172860000001" blue="0.40717186869999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="epa-50-T84" firstAttribute="top" secondItem="fKD-jR-D4u" secondAttribute="top" constant="18" id="39F-Hb-CDT"/>
+                                    <constraint firstAttribute="trailing" secondItem="epa-50-T84" secondAttribute="trailing" constant="8" id="BWE-Qa-us5"/>
                                     <constraint firstAttribute="height" constant="55" id="avL-YI-IeA"/>
+                                    <constraint firstItem="Axn-C1-CQL" firstAttribute="top" secondItem="fKD-jR-D4u" secondAttribute="top" constant="18" id="lW7-q1-w4g"/>
+                                    <constraint firstItem="Axn-C1-CQL" firstAttribute="centerX" secondItem="fKD-jR-D4u" secondAttribute="centerX" id="o19-l1-RGu"/>
+                                    <constraint firstItem="Axn-C1-CQL" firstAttribute="centerY" secondItem="fKD-jR-D4u" secondAttribute="centerY" id="tTt-mY-1ue"/>
+                                    <constraint firstItem="Axn-C1-CQL" firstAttribute="centerX" secondItem="fKD-jR-D4u" secondAttribute="centerX" id="wGu-XM-BhI"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="tTt-mY-1ue"/>
+                                        <exclude reference="wGu-XM-BhI"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PgU-sS-2Bc">
                                 <rect key="frame" x="20" y="125" width="560" height="455"/>
@@ -37,7 +77,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="p5e-GG-HIr" customClass="PokeCell" customModule="PokeDex" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PokeCell" id="p5e-GG-HIr" customClass="PokeCell" customModule="PokeDex" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -77,7 +117,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <searchBar contentMode="redraw" ambiguous="YES" misplaced="YES" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="LKx-ul-M42">
+                            <searchBar contentMode="redraw" ambiguous="YES" misplaced="YES" searchBarStyle="minimal" placeholder="Search For Pokemon" translatesAutoresizingMaskIntoConstraints="NO" id="LKx-ul-M42">
                                 <rect key="frame" x="0.0" y="59" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -106,6 +146,10 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="collection" destination="PgU-sS-2Bc" id="KsF-vn-Cbt"/>
+                        <outlet property="searchBar" destination="LKx-ul-M42" id="1nP-jU-BeY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -115,5 +159,6 @@
     <resources>
         <image name="295" width="120" height="120"/>
         <image name="bg" width="1920" height="1200"/>
+        <image name="musicbtn" width="80" height="80"/>
     </resources>
 </document>
