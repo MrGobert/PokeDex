@@ -173,7 +173,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Charizard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9KN-jl-gc8">
-                                        <rect key="frame" x="191" y="12" width="218" height="31"/>
+                                        <rect key="frame" x="191" y="20" width="218" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="IaJ-Pr-3gY"/>
                                             <constraint firstAttribute="width" constant="198" id="W5h-gB-GjX"/>
@@ -206,10 +206,18 @@
                                 <constraints>
                                     <constraint firstItem="9KN-jl-gc8" firstAttribute="centerY" secondItem="s5n-hY-oxV" secondAttribute="centerY" id="C6k-hw-FLf"/>
                                     <constraint firstItem="9KN-jl-gc8" firstAttribute="centerX" secondItem="s5n-hY-oxV" secondAttribute="centerX" id="G5g-lx-vmu"/>
+                                    <constraint firstItem="9KN-jl-gc8" firstAttribute="centerX" secondItem="s5n-hY-oxV" secondAttribute="centerX" id="Lre-Ga-h2Y"/>
                                     <constraint firstItem="n7e-4q-S4o" firstAttribute="leading" secondItem="s5n-hY-oxV" secondAttribute="leading" constant="17" id="VSm-Wt-ree"/>
+                                    <constraint firstItem="9KN-jl-gc8" firstAttribute="top" secondItem="s5n-hY-oxV" secondAttribute="top" constant="20" id="iuV-82-ZFU"/>
                                     <constraint firstAttribute="height" constant="55" id="lgH-4d-gND"/>
                                     <constraint firstAttribute="bottom" secondItem="n7e-4q-S4o" secondAttribute="bottom" constant="12" id="xpB-fo-e2f"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="C6k-hw-FLf"/>
+                                        <exclude reference="G5g-lx-vmu"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yOC-es-M3w">
                                 <rect key="frame" x="20" y="75" width="560" height="307"/>
@@ -231,7 +239,7 @@
                                             </mask>
                                         </variation>
                                     </segmentedControl>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="8pL-2k-NEm">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8pL-2k-NEm">
                                         <rect key="frame" x="0.0" y="44" width="560" height="120"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="160" translatesAutoresizingMaskIntoConstraints="NO" id="12E-IQ-Ovp">
@@ -242,7 +250,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="dvG-Cy-hS6">
-                                                <rect key="frame" x="120" y="0.0" width="440" height="120"/>
+                                                <rect key="frame" x="125" y="0.0" width="435" height="120"/>
                                                 <string key="text">Charmeleon mercilessly destroys its foes using its sharp claws. If it encounters a strong foe, it turns aggressive. In this excited state, the flame at the tip of its tail flares with a bluish white color.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
