@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var collection: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -21,6 +21,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         collection.delegate = self
         collection.dataSource = self
@@ -32,6 +33,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         parsePokemonCSV()
     }
     
+
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 120, height:  37))
+        imageView.contentMode = .ScaleAspectFit
+        
+        let image = UIImage(named: "pokedexlogo")
+        imageView.image = image
+        
+        navigationItem.titleView = imageView
+        
+    }
+    
     func initAudio() {
         
         let path = NSBundle.mainBundle().pathForResource("music", ofType: "mp3")!
@@ -41,6 +56,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             musicPlayer = try AVAudioPlayer(contentsOfURL: NSURL(string: path)!)
             musicPlayer.prepareToPlay()
             musicPlayer.numberOfLoops = -1
+            musicPlayer.volume = 0.5
             musicPlayer.play()
             
         } catch let err as NSError {
